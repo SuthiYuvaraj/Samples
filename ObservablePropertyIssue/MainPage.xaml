@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Test11.ViewModels"
+             xmlns:models="clr-namespace:Test11.Models"
+             x:Class="Test11.MainPage"
+             x:DataType="vm:MainPageViewModel">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <Label Text="Picker Sample (ObservableObject)"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Picker Title="Select a project"
+                ItemsSource="{Binding Projects}"
+                ItemDisplayBinding="{Binding Name, x:DataType=models:Project}"
+                SelectedItem="{Binding SelectedProject}"
+                SelectedIndex="{Binding SelectedProjectIndex}"
+                IsOpen="{Binding IsProjectPickerExpanded, Mode=TwoWay}"/>
+
+        <Label Text="{Binding SelectionText}"
+               FontSize="16"
+               HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>
